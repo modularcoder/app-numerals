@@ -3,11 +3,16 @@ import languageConverterService from './languageConverterService'
 describe('languageConverterService.numberToEnglishNumeral', () => {
   const numberToEnglishNumeral = languageConverterService.numberToEnglishNumeral
 
+  it('converts to cardinal numbers', () => {
+    Object.keys(languageConverterService.englishNumerals).map((numberStr) => {
+      const number = parseInt(numberStr)
+      const expectedResult = languageConverterService.englishNumerals[number]
+
+      expect(numberToEnglishNumeral(number)).toBe(expectedResult)
+    })
+  })
+
   it('converts to English numerals', () => {
-    expect(numberToEnglishNumeral(0)).toBe('zero')
-    expect(numberToEnglishNumeral(1)).toBe('one')
-    expect(numberToEnglishNumeral(10)).toBe('ten')
-    expect(numberToEnglishNumeral(11)).toBe('eleven')
     expect(numberToEnglishNumeral(55)).toBe('fifty-five')
     expect(numberToEnglishNumeral(123)).toBe('one hundred and twenty-three')
     expect(numberToEnglishNumeral(1234)).toBe(
