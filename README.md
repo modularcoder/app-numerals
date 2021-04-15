@@ -85,3 +85,7 @@ npm run test:e2e
 ```
 npm run lint
 ```
+
+## Things to improve
+
+- Improve test paths
