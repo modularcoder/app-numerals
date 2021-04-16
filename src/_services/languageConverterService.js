@@ -109,7 +109,13 @@ const languageConverterService = {
       }
     }
 
-    let result = convertMillions(num)
+    let result = ''
+
+    if (num === 0) {
+      result = 'zero'
+    } else {
+      result = convertMillions(num)
+    }
 
     // Trim the tail spacing
     result = result.trim()
