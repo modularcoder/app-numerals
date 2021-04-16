@@ -45,7 +45,7 @@ export default {
   components: { BaseCard, BaseTitle, BaseButton, BaseField, BaseInput },
   data() {
     return {
-      input: null,
+      input: 0,
       output: null,
     }
   },
