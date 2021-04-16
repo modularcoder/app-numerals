@@ -1,6 +1,19 @@
-## Docs
+# Numerals
 
-This app converts numerical inputs to [English numerals](https://en.wikipedia.org/wiki/English_numerals).
+| This app converts numerical inputs to [English numerals](https://en.wikipedia.org/wiki/English_numerals).
+
+<img src="https://user-images.githubusercontent.com/3959008/114965848-791fdb00-9e82-11eb-8ab6-4bcf0e9baa4d.png" />
+
+
+
+<p align="center">
+  <h3>
+    <a href="https://numerals.gh.am/" target="_blank"> View Demo 🏄</a>
+  </h3>
+</p>
+
+
+
 
 
 ### Few main points about the structure
