@@ -74,6 +74,9 @@ npm run lint
 ```
 
 
+-----------------------
+
+
 
 # Strings Engineering
 ## Vue Front-End Coding Exercise
