@@ -24,6 +24,7 @@ There are certanlty things that can be still improved, but were not done due to 
 - Cover base components with Jest test
 - Implement storybook, where we may describe the app components. See [StoryBook for Vue](https://storybook.js.org/docs/vue/get-started/introduction)
 - The app might be written with Composition api
+- The input validation is hacked with using `input type="number"`. In real world we need a validation, and error feedback messages
 - TypeScript support
 
 
