@@ -14,6 +14,11 @@ export default {
 </script>
 
 <style lang="scss">
+:root {
+  --color-text: #041027;
+  --color-text-muted: #adb9ce;
+}
+
 #app {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -23,9 +28,16 @@ export default {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  color: var(--color-text);
+  font-size: 16px;
 }
 
 * {
   box-sizing: border-box;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 </style>

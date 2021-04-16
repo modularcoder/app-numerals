@@ -1,25 +1,50 @@
 <template>
   <div class="ConverterPage">
-    <div class="BaseCard"></div>
+    <div class="PageShadow"></div>
+    <div class="PageContainer">
+      <BaseCard class="Card">
+        <BaseTitle>Convert integer to text</BaseTitle>
 
-    <div class="ConverterPageShadow"></div>
+        <BaseField label="Enter your favorite number">
+          <BaseInput v-model="input" placeholder="Enter a number here" />
+        </BaseField>
+
+        <BaseField label="Your number in text">
+          <p class="ResultPlaceholder" v-if="!input">
+            Your number will show here
+          </p>
+          <div class="Result" v-if="output">{{ output }}</div>
+        </BaseField>
+
+        <footer class="CardFooter">
+          <BaseButton class="BtnSubmit">Convert</BaseButton>
+        </footer>
+      </BaseCard>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
-import languageConverterService from './_services/languageConverterService'
+// import languageConverterService from '../_services/languageConverterService'
+
+import BaseTitle from '../_common/BaseTitle/BaseTitle'
+import BaseCard from '../_common/BaseCard/BaseCard'
+import BaseButton from '../_common/BaseButton/BaseButton'
+import BaseField from '../_common/BaseField/BaseField'
+import BaseInput from '../_common/BaseInput/BaseInput'
 
 export default {
   name: 'Home',
-  components: {},
-  mounted() {
-    console.log(
-      'languageConverterService',
-      languageConverterService.numberToEnglishNumeral(85000),
-    )
+  components: { BaseCard, BaseTitle, BaseButton, BaseField, BaseInput },
+  data() {
+    return {
+      input: '',
+      output: '',
+    }
   },
+  mounted() {},
 }
 </script>
 
@@ -36,23 +61,33 @@ export default {
   top: 0;
   flex: 1;
   overflow: hidden;
-
   padding-top: 200px;
   padding-bottom: 200px;
 }
 
-.BaseCard {
-  padding: 250px;
-
-  background: #ffffff;
+.PageContainer {
+  width: 506px;
+  position: relative;
   z-index: 1;
-  /* Subtle shadow - basi */
-
-  box-shadow: 0px 8px 20px rgba(4, 16, 39, 0.08);
-  border-radius: 5px;
 }
 
-.ConverterPageShadow {
+.Card {
+  .CardFooter {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.ResultPlaceholder {
+  color: var(--color-text-muted);
+}
+
+.BtnSubmit {
+  margin-left: auto;
+}
+
+.PageShadow {
   position: absolute;
   top: 50%;
   left: 50%;
