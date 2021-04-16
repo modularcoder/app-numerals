@@ -1,27 +1,31 @@
 <template>
-  <div id="nav"></div>
+  <AppHeader />
   <router-view />
 </template>
 
+<script>
+import AppHeader from './_common/TheAppHeader/TheAppHeader'
+
+export default {
+  components: {
+    AppHeader,
+  },
+}
+</script>
+
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+  background: #fbfcff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+* {
+  box-sizing: border-box;
 }
 </style>
