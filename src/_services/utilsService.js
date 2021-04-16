@@ -9,7 +9,7 @@ const utilsService = {
       return input
     }
 
-    return input.charAt(0).toUpperCase() + name.slice(1)
+    return input.charAt(0).toUpperCase() + input.slice(1)
   },
 }
 
