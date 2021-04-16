@@ -17,8 +17,10 @@
 
 ### Few main points about the structure
 
+- Code styling: Prettier + ESLint
 - Unit tests are in jest, the converter function and ConverterMain page are tests
 - Unit test are located within the source files so It's easy navigate
+- E2E tests are in cypress
 - `_common` directory contains reusable components 
 - Components can be Base{Component} (building block components, there may be a few components of this type on the page at the same time) and App{FeatureName} related, which are appearing only one time on the page (this is done according Vue best practices styleguides). See (Base component names)[https://vuejs.org/v2/style-guide/#Base-component-names-strongly-recommended] and (Single-instance component names)[https://vuejs.org/v2/style-guide/#Single-instance-component-names-strongly-recommended]
 - The directory organization is done according "ModularCode" best practices. Each directory starting with an uppercase is assumed to be a module. Directories starting with underscore are aggregational, and they may contain things of the same time for that level of hierarchy.
