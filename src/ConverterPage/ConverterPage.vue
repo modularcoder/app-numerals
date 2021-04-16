@@ -22,7 +22,12 @@
         </BaseField>
 
         <footer class="CardFooter">
-          <BaseButton class="BtnSubmit" @click="convert">Convert</BaseButton>
+          <BaseButton
+            class="BtnSubmit"
+            :disabled="!isFormValid"
+            @click="convert"
+            >Convert</BaseButton
+          >
         </footer>
       </BaseCard>
     </div>
@@ -45,9 +50,14 @@ export default {
   components: { BaseCard, BaseTitle, BaseButton, BaseField, BaseInput },
   data() {
     return {
-      input: 0,
+      input: null,
       output: null,
     }
+  },
+  computed: {
+    isFormValid() {
+      return typeof this.input === 'number' && !Number.isNaN(this.input)
+    },
   },
   methods: {
     clearOutput() {

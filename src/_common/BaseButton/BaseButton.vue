@@ -1,5 +1,5 @@
 <template>
-  <component class="BaseButton" :is="tag">
+  <component class="BaseButton" :is="tag" :disabled="disabled">
     <slot></slot>
   </component>
 </template>
@@ -11,10 +11,14 @@ export default {
       type: String,
       default: () => 'button',
     },
-  },
-  type: {
-    type: String,
-    defuult: () => 'default',
+    type: {
+      type: String,
+      defuult: () => 'default',
+    },
+    disabled: {
+      type: Boolean,
+      default: () => false,
+    },
   },
 }
 </script>
@@ -22,7 +26,7 @@ export default {
 <style lang="scss" scoped>
 .BaseButton {
   color: #fff;
-  background: #adb9ce;
+  background: var(--color-primary);
   box-shadow: 0px 8px 20px rgba(4, 16, 39, 0.08);
   border-radius: 3px;
   padding: 11px 6px;
@@ -38,11 +42,34 @@ export default {
   flex-direction: row;
   cursor: pointer;
   transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
 
-  &:hover,
-  &:focus,
-  &:active {
-    background: #909eb6;
+  &::before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    right: 100%;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  &:disabled {
+    cursor: default;
+    background: var(--color-text-muted);
+  }
+
+  &:not(:disabled) {
+    &:hover,
+    &:focus,
+    &:active {
+      &::before {
+        right: 0;
+      }
+    }
   }
 }
 </style>

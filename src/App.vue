@@ -15,6 +15,8 @@ export default {
 
 <style lang="scss">
 :root {
+  --color-primary: #041027;
+  --color-primary-lighter: #102b5f;
   --color-text: #041027;
   --color-text-muted: #adb9ce;
 }
