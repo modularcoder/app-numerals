@@ -1,17 +1,37 @@
 <template>
-  <input v-bind="$attrs" :value="value" class="BaseInput" />
+  <input
+    v-bind="$attrs"
+    :value="modelValue"
+    :type="type"
+    class="BaseInput"
+    @input="handleUpdate"
+  />
 </template>
 
 <script>
 export default {
   inheritAttrs: false,
   props: {
-    value: [Number, String],
+    modelValue: {
+      type: [String, Number],
+      default: null,
+    },
     type: {
       type: String,
       default: () => 'text',
     },
   },
+  methods: {
+    handleUpdate(event) {
+      const value =
+        this.type === 'number'
+          ? parseInt(event.target.value, 10)
+          : event.target.value
+
+      this.$emit('update:modelValue', value)
+    },
+  },
+  emits: ['update:modelValue'],
 }
 </script>
 

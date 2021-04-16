@@ -6,18 +6,23 @@
         <BaseTitle>Convert integer to text</BaseTitle>
 
         <BaseField label="Enter your favorite number">
-          <BaseInput v-model="input" placeholder="Enter a number here" />
+          <BaseInput
+            v-model="input"
+            placeholder="Enter a number here"
+            type="number"
+            @input="clearOutput"
+          />
         </BaseField>
 
         <BaseField label="Your number in text">
-          <p class="ResultPlaceholder" v-if="!input">
+          <p class="ResultPlaceholder" v-if="!output">
             Your number will show here
           </p>
           <div class="Result" v-if="output">{{ output }}</div>
         </BaseField>
 
         <footer class="CardFooter">
-          <BaseButton class="BtnSubmit">Convert</BaseButton>
+          <BaseButton class="BtnSubmit" @click="convert">Convert</BaseButton>
         </footer>
       </BaseCard>
     </div>
@@ -27,7 +32,7 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
-// import languageConverterService from '../_services/languageConverterService'
+import languageConverterService from '../_services/languageConverterService'
 
 import BaseTitle from '../_common/BaseTitle/BaseTitle'
 import BaseCard from '../_common/BaseCard/BaseCard'
@@ -36,13 +41,29 @@ import BaseField from '../_common/BaseField/BaseField'
 import BaseInput from '../_common/BaseInput/BaseInput'
 
 export default {
-  name: 'Home',
+  name: 'ConverterPage',
   components: { BaseCard, BaseTitle, BaseButton, BaseField, BaseInput },
   data() {
     return {
-      input: '',
-      output: '',
+      input: null,
+      output: null,
     }
+  },
+  methods: {
+    clearOutput() {
+      this.output = null
+    },
+    convert() {
+      try {
+        this.output = languageConverterService.numberToEnglishNumeral(
+          this.input,
+          { capitalize: true },
+        )
+      } catch (err) {
+        this.output = ''
+        alert(err.message)
+      }
+    },
   },
   mounted() {},
 }
