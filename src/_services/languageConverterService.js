@@ -113,6 +113,8 @@ const languageConverterService = {
 
     if (num === 0) {
       result = 'zero'
+    } else if (num < 0) {
+      result = 'minus' + convertMillions(Math.abs(num))
     } else {
       result = convertMillions(num)
     }
