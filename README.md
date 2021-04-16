@@ -2,7 +2,7 @@
 
 | This app converts numerical inputs to [English numerals](https://en.wikipedia.org/wiki/English_numerals).
 
-<img src="https://user-images.githubusercontent.com/3959008/114965848-791fdb00-9e82-11eb-8ab6-4bcf0e9baa4d.png" />
+<img src="https://user-images.githubusercontent.com/3959008/114967057-d157dc80-9e84-11eb-8ce7-c9ba88b697eb.png" />
 
 
 
