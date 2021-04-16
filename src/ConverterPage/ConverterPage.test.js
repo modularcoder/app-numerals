@@ -8,7 +8,7 @@ describe('ConverterPage.vue', () => {
     expect(wrapper.exists()).toBe(true)
   })
 
-  it('converts number to string', async () => {
+  it('converts number to numeral', async () => {
     const wrapper = mount(ConverterPage)
 
     await wrapper.setData({ input: 10 })
